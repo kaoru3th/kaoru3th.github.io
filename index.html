@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Каору Тринадцатый — Стихи</title>
-    <style>
+<style>
         body {
             background-color: #ede9df;
             background-repeat: repeat;
@@ -23,13 +23,14 @@
             text-align: center;
             margin-bottom: 40px;
         }
+        
         .poem-divider {
-    border: 20px;
-    height: 2px;       
-    width: 80px;          
-    background-color: #827365;
-    margin: 30px auto 30px auto;
-}
+            border: none;
+            height: 2px;       
+            width: 80px;          
+            background-color: #827365;
+            margin: 30px auto 30px auto;
+        }
 
         .intro {
             font-size: 0.95rem;
@@ -69,7 +70,7 @@
 
         .poem-card {
             background-color: #f0ede6;
-            background-image: url("https://www.image2url.com/r2/default/images/1779549901015-67b0d089-531f-49ee-a546-b49dbdb27ea1.jpg");
+            background-image: url("https://image2url.com");
             width: 100%;
             max-width: 450px;
             min-height: 480px;
@@ -81,20 +82,23 @@
             box-sizing: border-box;
             border-radius: 2px;
         }
-      h2 {
-    font-size: 2.2rem;
-    font-weight: normal;
-    margin: 0 0 10px 0;
-    text-align: center;
-    color: #000000;
-}        
-.poem-subtitle {
-    font-size: 1rem;
-    font-style: italic;
-    color: #827365;
-    text-align: center;
-    margin-bottom: 30px;
-}
+        
+        h2 {
+            font-size: 2.2rem;
+            font-weight: normal;
+            margin: 0 0 10px 0;
+            text-align: center;
+            color: #000000;
+        }        
+        
+        .poem-subtitle {
+            font-size: 1rem;
+            font-style: italic;
+            color: #827365;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
         .poem-text {
             font-size: 1rem;
             line-height: 1.7;
@@ -178,7 +182,29 @@
             color: #6d5f52;
             letter-spacing: 0.5px;
         }
-    </style>
+
+        @media (max-width: 768px) {
+            h1 {
+                white-space: normal;
+                word-wrap: break-word;
+                max-width: 100%;
+            }
+            .content-container {
+                max-width: 100%;
+                padding: 0 50px;
+                box-sizing: border-box;
+            }
+            .poem-card {
+                max-width: 100%;
+            }
+            .prev-btn {
+                left: 0;
+            }
+            .next-btn {
+                right: 0;
+            }
+        }
+</style>
 </head>
 <body>
     <header>
