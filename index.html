@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Каору Тринадцатый — Стихи</title>
+<h2 id="poem-title"></h2>
+<div id="poem-subtitle"></div>
     <style>
         body {
             background-color: #ede9df;
@@ -82,8 +84,7 @@
     text-align: center;
     color: #000000;
 }
-
-poem-subtitle {
+#poem-subtitle {
     font-size: 1rem;
     font-style: italic;
     color: #827365;
@@ -377,7 +378,7 @@ poem-subtitle {
      {
     title: "Белая лодка",
     subtitle: "верлибр",
-    date: "",
+    date: "2018",
     lines: [
         "Ты белая лодка, утопающая в чёрном пруду.",
         "На твоём берегу парк, в твоём парке колонны, на них послеполуденная тень.",
@@ -405,7 +406,7 @@ poem-subtitle {
 
         let currentIndex = 0;
 
-        function renderPoem(index) {
+      function renderPoem(index) {
     const poem = poems[index];
     document.getElementById('poem-title').innerText = poem.title;
     const subtitleDiv = document.getElementById('poem-subtitle');
@@ -419,6 +420,7 @@ poem-subtitle {
         return `<p>${line}</p>`;
     }).join('');
 }
+
 
         function nextPoem() {
             currentIndex = (currentIndex + 1) % poems.length;
