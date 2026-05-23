@@ -75,14 +75,21 @@
             border-radius: 2px;
         }
 
-        h2 {
-            font-size: 2.2rem;
-            font-weight: normal;
-            margin: 0 0 30px 0;
-            text-align: center;
-            color: #000000;
-        }
+      h2 {
+    font-size: 2.2rem;
+    font-weight: normal;
+    margin: 0 0 10px 0;
+    text-align: center;
+    color: #000000;
+}
 
+#poem-subtitle {
+    font-size: 1rem;
+    font-style: italic;
+    color: #827365;
+    text-align: center;
+    margin-bottom: 30px;
+}
         .poem-text {
             font-size: 1rem;
             line-height: 1.7;
@@ -366,22 +373,52 @@
         "Помолчим с тобой в прохладе ",
         "Горьких трав среди."
     ]
-}
+},
+     {
+    title: "Белая лодка",
+    subtitle: "верлибр",
+    date: "",
+    lines: [
+        "Ты белая лодка, утопающая в чёрном пруду.",
+        "На твоём берегу парк, в твоём парке колонны, на них послеполуденная тень.",
+        "<br>",
+        "Холодная и стеклянная, ты и не думаешь таять этим жарким летним днём.",
+        "Как роза в стекле, ты ничем не пахнешь, ты словно муляж на витрине.",
+        "<br>",
+        "О чём ты думаешь, кем ты являешься внутри собственных запутанных лабиринтов?",
+        "Ты посмотришь в сторону, только заметив зеркало. Что ты хочешь увидеть?",
+        "<br>",
+        "Ты далёкая финишная черта, тень самолёта на океанской волне, ты птица.",
+        "Ты птица, мерцающая лучами, закрывающая солнце крыльями.",
+        "<br>",
+        "Ты ленивая, ты неподвижная, как сжатая пружина.",
+        "Улыбаясь, ты всех делаешь счастливыми, но никого не выбираешь.",
+        "<br>",
+        "Ты не догадываешься, что есть кто-то, кто считает тебя мерцающей под солнцем,",
+        "Потому что я никогда не рискну взглянуть на тебя так, чтобы ты заметила.",
+        "<br>",
+        "Но ты и так окружена безмятежной зеркальной гладью неподвижной воды,",
+        "Ты белая лодка, утопающая в чёрном пруду. Белая лодка в пруду."
+    ]
+}      
         ];
 
         let currentIndex = 0;
 
         function renderPoem(index) {
-            const poem = poems[index];
-            document.getElementById('poem-title').innerText = poem.title;
-            document.getElementById('poem-date').innerText = poem.date ? poem.date : "";
-
-            const contentDiv = document.getElementById('poem-content');
-            contentDiv.innerHTML = poem.lines.map(line => {
-                if (line === "<br>") return "<br>";
-                return `<p>${line}</p>`;
-            }).join('');
-        }
+    const poem = poems[index];
+    document.getElementById('poem-title').innerText = poem.title;
+    const subtitleDiv = document.getElementById('poem-subtitle');
+    if (subtitleDiv) {
+        subtitleDiv.innerText = poem.subtitle ? poem.subtitle : "";
+    }
+    document.getElementById('poem-date').innerText = poem.date ? poem.date : "";
+    const contentDiv = document.getElementById('poem-content');
+    contentDiv.innerHTML = poem.lines.map(line => {
+        if (line === "<br>") return "<br>";
+        return `<p>${line}</p>`;
+    }).join('');
+}
 
         function nextPoem() {
             currentIndex = (currentIndex + 1) % poems.length;
