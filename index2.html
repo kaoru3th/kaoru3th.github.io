@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Каору Тринадцатый — Об авторе</title>
+    <style>
+        body {
+            background: #f0eae0 url("bg.jpg") repeat;
+            color: #2c2520;
+            font-family: "Georgia", serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+        header { text-align: center; margin-bottom: 30px; }
+        h1 { font-size: 2.2rem; margin: 0 0 20px 0; color: #827365; }
+        .feather { color: #827365; margin-bottom: 10px; }
+        .bio-card {
+            background-color: #fcfbfa;
+            max-width: 650px;
+            width: 100%;
+            padding: 40px;
+            box-shadow: 0 15px 35px rgba(35, 30, 25, 0.12);
+            box-sizing: border-box;
+        }
+        .bio-photo {
+            float: left;
+            width: 200px;
+            height: 200px;
+            border: 1.5px solid #827365;
+            margin: 0 30px 20px 0;
+            object-fit: cover;
+        }
+        .bio-text { font-size: 1.15rem; line-height: 1.7; text-align: left; }
+        footer { margin-top: auto; text-align: center; padding-top: 40px; }
+        .copyright { font-size: 0.85rem; color: #6d5f52; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Каору Тринадцатый</h1>
+        <div class="feather">
+            <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><path d="M16 8 2 22"/><path d="M17.5 15H9"/></svg>
+        </div>
+    </header>
+
+    <div class="bio-card">
+        <img src="photo.jpg" alt="Фото" class="bio-photo">
+        <div class="bio-text">
+            Здесь ваш биографический текст. Абзацы будут автоматически обтекать фотографию слева, подстраиваясь под её высоту и заполняя свободное пространство бумажного листа.
+        </div>
+        <div style="clear: both;"></div>
+    </div>
+
+    <footer>
+        <div class="copyright">
+            © 2026 Каору Тринадцатый. Официальный сайт. Все права защищены.
+        </div>
+    </footer>
+
+</body>
+</html>

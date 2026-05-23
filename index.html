@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каору Тринадцатый — Стихи</title>
+    <style>
+        body {
+            background-color: #ede9df;
+            background-image: url("...");
+            background-repeat: repeat;
+            color: #2c2520;
+            font-family: "Georgia", "Times New Roman", serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .intro {
+            font-size: 0.95rem;
+            font-weight: normal;
+            color: #827365;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: normal;
+            margin: 0 0 25px 0;
+            color: #000000;
+        }
+
+        .welcome {
+            font-size: 0.95rem;
+            font-weight: normal;
+            color: #827365;
+            margin: 0 0 70px 0;
+        }
+
+        .feather {
+            color: #827365;
+            margin-bottom: 10px;
+        }
+
+        .content-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 650px;
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .poem-card {
+            background-color: #fcfbfa;
+            width: 100%;
+            max-width: 450px;
+            min-height: 480px;
+            padding: 50px 40px;
+            box-shadow: 0 15px 35px rgba(35, 30, 25, 0.12), 0 3px 10px rgba(35, 30, 25, 0.06); 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-sizing: border-box;
+            border-radius: 2px;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            font-weight: normal;
+            margin: 0 0 30px 0;
+            text-align: center;
+            color: #000000;
+        }
+
+        .poem-text {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #312922;
+            text-align: left;
+            margin: 0 auto;
+            display: inline-block;
+            max-width: 100%;
+        }
+
+        .poem-text p {
+            margin: 4px 0;
+        }
+        
+        .poem-text br {
+            display: block;
+            margin-top: 15px;
+            content: "";
+        }
+
+        .date {
+            font-size: 0.95rem;
+            font-style: italic;
+            color: #7c6f62;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .nav-btn {
+            background: none;
+            border: none;
+            color: #4a3f35;
+            cursor: pointer;
+            padding: 10px;
+            position: absolute;
+            transition: transform 0.2s, color 0.2s;
+        }
+
+        .nav-btn:hover {
+            color: #1e1915;
+            transform: scale(1.15);
+        }
+
+        .prev-btn {
+            left: 25px;
+        }
+
+        .next-btn {
+            right: 25px;
+        }
+
+        footer {
+            margin-top: auto;
+            text-align: center;
+            width: 100%;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 25px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a3f35;
+            text-decoration: none;
+            transition: color 0.2s, transform 0.2s;
+        }
+
+        .social-links a:hover {
+            color: #1e1915;
+            transform: translateY(-2px);
+        }
+
+        .copyright {
+            font-size: 0.85rem;
+            color: #6d5f52;
+            letter-spacing: 0.5px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="intro">Меня зовут</div>
+        <h1>Каору Тринадцатый</h1>
+        <div class="welcome">Добро пожаловать на мою страницу</div>
+
+         <p class="quote"></p>
+        <div class="feather">
+            <svg xmlns="http://w3.org" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/><path d="M16 8 2 22"/><path d="M17.5 15H9"/></svg>
+        </div>
+    </header>
+
+    <div class="content-container">
+        <button class="nav-btn prev-btn" onclick="prevPoem()">
+            <svg xmlns="http://w3.org" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+        </button>
+
+        <div class="poem-card">
+            <h2 id="poem-title"></h2>
+            <div style="text-align: center; flex-grow: 1; display: flex; align-items: center; justify-content: center;">
+                <div class="poem-text" id="poem-content"></div>
+            </div>
+            <div class="date" id="poem-date"></div>
+        </div>
+
+        <button class="nav-btn next-btn" onclick="nextPoem()">
+            <svg xmlns="http://w3.org" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+        </button>
+    </div>
+    <footer>
+        <div class="social-links">
+            <a href="https://x.com/Mr_Blue_Cake" target="_blank">
+                <svg xmlns="http://w3.org" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
+                </svg>
+            </a>
+            <a href="https://t.me" target="_blank">
+                <svg xmlns="http://w3.org" width="22" height="22" fill="currentColor" viewBox="0 0 16 16">
+                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.287 5.906c-.778.324-2.334.994-4.666 2.01-.378.15-.577.298-.595.442-.03.243.275.339.69.47l.175.055c.408.133.958.288 1.243.294.26.006.549-.1.868-.32 2.179-1.471 3.304-2.214 3.374-2.23.05-.012.12-.026.166.016.047.041.042.12.037.141-.03.137-1.309 1.328-1.972 1.944-.206.192-.352.328-.364.341-.027.027-.054.053-.08.08-.323.322-.566.564-.1.874.226.15.412.285.597.412.203.14.406.279.67.452.126.082.25.167.38.256.27.185.517.354.81.326.17-.016.347-.176.437-.66.21-1.126.62-3.543.76-4.992.012-.13-.015-.27-.08-.346-.076-.086-.183-.1-.288-.1a1.02 1.02 0 0 0-.258.032z"/>
+                </svg>
+            </a>
+            <a href="https://ridero.ru/books/kamni_v_reke/" target="_blank">
+                <svg xmlns="http://w3.org" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                    <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                </svg>
+            </a>
+ <a href="#" target="_blank" title="Об авторе">
+                <svg xmlns="http://w3.org" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="12" cy="7" r="4"></circle>
+                </svg>
+            </a>
+        </div>
+        <div class="copyright">
+            © 2026 Каору Тринадцатый. Официальный сайт. Все права защищены.
+        </div>
+    </footer>
+
+    <script>
+        const poems = [
+            {
+                title: "Ночь",
+                date: "",
+                lines: [
+                    "Час, когда уже не рано,",
+                    "Тот час, который всё спасёт.",
+                    "И ворон в клюве лепестки шафрана",
+                    "Несёт.",
+                    "<br>",
+                    "Умчится,",
+                    "опадёт",
+                    "оранже-жёлтовое солнце-шафран",
+                    "В грубины испылённых улиц,",
+                    "И вдруг взорвётся старый шрам:",
+                    "Ну, здравствуй, мама, мы вернулись.",
+                    "<br>",
+                    "Вернулись, чтобы взять гитару,",
+                    "Чтоб - снова к тёплым крышам,",
+                    "Чтоб править, исправлять всё то, что притворится старым,",
+                    "И песни — картавить.",
+                    "<br>",
+                    "Чеканить тонкие печати ",
+                    "следов по жести крыш,",
+                    "И разговаривать к рассвету",
+                    "Всё тише, и тише."
+                ]
+            },
+            {
+                title: "Врата",
+                date: "",
+                lines: [
+                    "Я провожал глазами толпы праздных",
+                    "В меха и золото закованных людей.",
+                    "Пред ними бездна врат зияла пастью,",
+                    "Ощерившись обломками костей.",
+                    "<br>",
+                    "Я тихо пел, вдыхая слабой грудью,",
+                    "С рукой протянутой у распростёртых врат.",
+                    "Я ждал тот миг, когда вернутся люди,",
+                    "Но не вернулся ни один из них назад."
+                ]
+            },
+            {
+                title: "На море скоро буря",
+                date: "",
+                lines: [
+                    "На море скоро буря. Жёлтый свет,",
+                    "И облака, похожие на горные массивы. ",
+                    "Тонки, узорчаты мы были на просвет,",
+                    "Немного холодны и дьявольски красивы. ",
+                    "<br>",
+                    "Держала шляпу ты от ветра за поля.",
+                    "И даль молчала, гранями бликуя. ",
+                    "Грустила ты специально для меня, ",
+                    "Чтоб я тебя любил такую. ",
+                    "<br>",
+                    "Вернёмся мы, и серый плотный быт",
+                    "Затмит нам полувзрачных звёзд свободу,",
+                    "Но выстрел глаз твоих мне возвратит",
+                    "Глубоко синюю морскую воду."
+                ]
+            }
+        ];
+
+        let currentIndex = 0;
+
+        function renderPoem(index) {
+            const poem = poems[index];
+            document.getElementById('poem-title').innerText = poem.title;
+            document.getElementById('poem-date').innerText = poem.date ? poem.date : "";
+
+            const contentDiv = document.getElementById('poem-content');
+            contentDiv.innerHTML = poem.lines.map(line => {
+                if (line === "<br>") return "<br>";
+                return `<p>${line}</p>`;
+            }).join('');
+        }
+
+        function nextPoem() {
+            currentIndex = (currentIndex + 1) % poems.length;
+            renderPoem(currentIndex);
+        }
+
+        function prevPoem() {
+            currentIndex = (currentIndex - 1 + poems.length) % poems.length;
+            renderPoem(currentIndex);
+        }
+
+        renderPoem(currentIndex);
+    </script>
+</body>
+</html>
