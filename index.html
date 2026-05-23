@@ -22,6 +22,7 @@
         header {
             text-align: center;
             margin-bottom: 40px;
+            width: 100%;
         }
         
         .poem-divider {
@@ -40,10 +41,11 @@
         }
 
         h1 {
-            font-size: 3.5rem;
+            font-size: clamp(2rem, 8vw, 3.5rem);
             font-weight: normal;
             margin: 0 0 25px 0;
             color: #000000;
+            white-space: nowrap;
         }
 
         .welcome {
@@ -69,7 +71,7 @@
         }
 
         .poem-card {
-            background-color: #f0ede6;
+            background-color: #fcfbfa;
             background-image: url("https://image2url.com");
             width: 100%;
             max-width: 450px;
@@ -84,7 +86,7 @@
         }
         
         h2 {
-            font-size: 2.2rem;
+            font-size: clamp(1.5rem, 5vw, 2.2rem);
             font-weight: normal;
             margin: 0 0 10px 0;
             text-align: center;
@@ -100,7 +102,7 @@
         }
         
         .poem-text {
-            font-size: 1rem;
+            font-size: clamp(0.85rem, 2.5vw, 1rem);
             line-height: 1.7;
             color: #312922;
             text-align: left;
@@ -184,24 +186,20 @@
         }
 
         @media (max-width: 768px) {
-            h1 {
-                white-space: normal;
-                word-wrap: break-word;
-                max-width: 100%;
-            }
             .content-container {
                 max-width: 100%;
-                padding: 0 50px;
+                padding: 0 60px;
                 box-sizing: border-box;
             }
             .poem-card {
                 max-width: 100%;
+                padding: 40px 25px;
             }
             .prev-btn {
-                left: 0;
+                left: 5px;
             }
             .next-btn {
-                right: 0;
+                right: 5px;
             }
         }
 </style>
